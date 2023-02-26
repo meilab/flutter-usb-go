@@ -23,7 +23,7 @@ class MethodChannelFlutterUsbGo extends FlutterUsbGoPlatform {
   }
 
   @override
-  Future<int?> openDevice() async {
+  Future<int?> openDevice(Map<String, int> arguments) async {
     final version = await methodChannel.invokeMethod<int>('openDevice');
     return version;
   }
@@ -34,25 +34,25 @@ class MethodChannelFlutterUsbGo extends FlutterUsbGoPlatform {
   }
 
   @override
-  Future<Uint8List?> read() async {
+  Future<Uint8List?> read(int argument) async {
     final version = await methodChannel.invokeMethod<Uint8List>('read');
     return version;
   }
 
   @override
-  Future<int?> write() async {
+  Future<int?> write(Uint8List argument) async {
     final version = await methodChannel.invokeMethod<int>('write');
     return version;
   }
 
   @override
-  Future<Uint8List?> controlRead() async {
+  Future<Uint8List?> controlRead(Map<String, int> arguments) async {
     final version = await methodChannel.invokeMethod<Uint8List>('controlRead');
     return version;
   }
 
   @override
-  Future<int?> controlWrite() async {
+  Future<int?> controlWrite(Map<String, dynamic> arguments) async {
     final version = await methodChannel.invokeMethod<int>('controlWrite');
     return version;
   }

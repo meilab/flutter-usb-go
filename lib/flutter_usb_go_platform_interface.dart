@@ -33,7 +33,7 @@ abstract class FlutterUsbGoPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<int?> openDevice() {
+  Future<int?> openDevice(Map<String, int> arguments) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
@@ -41,19 +41,19 @@ abstract class FlutterUsbGoPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<Uint8List?> read() {
+  Future<Uint8List?> read(int argument) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<int?> write() {
+  Future<int?> write(Uint8List argument) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<Uint8List?> controlRead() {
+  Future<Uint8List?> controlRead(Map<String, int> arguments) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<int?> controlWrite() {
+  Future<int?> controlWrite(Map<String, dynamic> arguments) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

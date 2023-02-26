@@ -18,27 +18,27 @@ class FlutterUsbGo {
     return FlutterUsbGoPlatform.instance.getUsbInfo();
   }
 
-  Future<int?> openDevice() {
-    return FlutterUsbGoPlatform.instance.openDevice();
+  Future<int?> openDevice(Map<String, int> arguments) {
+    return FlutterUsbGoPlatform.instance.openDevice(arguments);
   }
 
   Future<bool?> closeDevice() {
     return FlutterUsbGoPlatform.instance.closeDevice();
   }
 
-  Future<Uint8List?> read() {
-    return FlutterUsbGoPlatform.instance.read();
+  Future<Uint8List?> read(int argument) {
+    return FlutterUsbGoPlatform.instance.read(argument);
   }
 
-  Future<int?> write() {
-    return FlutterUsbGoPlatform.instance.write();
+  Future<int?> write(Uint8List argument) {
+    return FlutterUsbGoPlatform.instance.write(argument);
   }
 
-  Future<Uint8List?> controlRead() {
-    return FlutterUsbGoPlatform.instance.controlRead();
+  Future<Uint8List?> controlRead(Map<String, int> arguments) {
+    return FlutterUsbGoPlatform.instance.controlRead(arguments);
   }
 
-  Future<int?> controlWrite() {
-    return FlutterUsbGoPlatform.instance.controlWrite();
+  Future<int?> controlWrite(Map<String, dynamic> arguments) {
+    return FlutterUsbGoPlatform.instance.controlWrite(arguments);
   }
 }
