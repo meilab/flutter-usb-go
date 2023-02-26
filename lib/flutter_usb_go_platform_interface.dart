@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'flutter_usb_go_method_channel.dart';
@@ -24,6 +26,34 @@ abstract class FlutterUsbGoPlatform extends PlatformInterface {
   }
 
   Future<String?> getPlatformVersion() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<String?> getUsbInfo() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<int?> openDevice() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<bool?> closeDevice() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<Uint8List?> read() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<int?> write() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<Uint8List?> controlRead() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<int?> controlWrite() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

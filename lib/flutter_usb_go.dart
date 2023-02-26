@@ -5,10 +5,40 @@
 // platforms in the `pubspec.yaml` at
 // https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
 
+import 'dart:typed_data';
+
 import 'flutter_usb_go_platform_interface.dart';
 
 class FlutterUsbGo {
   Future<String?> getPlatformVersion() {
     return FlutterUsbGoPlatform.instance.getPlatformVersion();
+  }
+
+  Future<String?> getUsbInfo() {
+    return FlutterUsbGoPlatform.instance.getUsbInfo();
+  }
+
+  Future<int?> openDevice() {
+    return FlutterUsbGoPlatform.instance.openDevice();
+  }
+
+  Future<bool?> closeDevice() {
+    return FlutterUsbGoPlatform.instance.closeDevice();
+  }
+
+  Future<Uint8List?> read() {
+    return FlutterUsbGoPlatform.instance.read();
+  }
+
+  Future<int?> write() {
+    return FlutterUsbGoPlatform.instance.write();
+  }
+
+  Future<Uint8List?> controlRead() {
+    return FlutterUsbGoPlatform.instance.controlRead();
+  }
+
+  Future<int?> controlWrite() {
+    return FlutterUsbGoPlatform.instance.controlWrite();
   }
 }
