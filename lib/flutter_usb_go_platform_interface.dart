@@ -29,7 +29,7 @@ abstract class FlutterUsbGoPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<String?> getUsbInfo() {
+  Future<Uint8List?> getUsbInfo() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 

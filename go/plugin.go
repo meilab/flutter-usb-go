@@ -4,9 +4,11 @@ import (
 	flutter "github.com/go-flutter-desktop/go-flutter"
 	"github.com/go-flutter-desktop/go-flutter/plugin"
 
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/google/gousb"
 	"github.com/google/gousb/usbid"
@@ -226,6 +228,7 @@ func findCwSca(vid, pid uint16) func(desc *gousb.DeviceDesc) bool {
 // https://godoc.org/github.com/go-flutter-desktop/go-flutter/plugin#StandardMessageCodec
 func handleGetUsbInfo(arguments interface{}) (reply interface{}, err error) {
 	var retVal string
+	var deviceDesc []*gousb.DeviceDesc
 
 	ctx := gousb.NewContext()
 	defer ctx.Close()
@@ -238,6 +241,7 @@ func handleGetUsbInfo(arguments interface{}) (reply interface{}, err error) {
 		// The usbid package can be used to print out human readable information.
 		retVal += fmt.Sprintf("%03d.%03d %s:%s %s\n", desc.Bus, desc.Address, desc.Vendor, desc.Product, usbid.Describe(desc))
 		retVal += fmt.Sprintf("  Protocol: %s\n", usbid.Classify(desc))
+		deviceDesc = append(deviceDesc, desc)
 
 		// The configurations can be examined from the DeviceDesc, though they can only
 		// be set once the device is opened.  All configuration references must be closed,
@@ -284,5 +288,9 @@ func handleGetUsbInfo(arguments interface{}) (reply interface{}, err error) {
 		_ = dev
 	}
 
-	return retVal, nil
+	b, err := json.Marshal(deviceDesc)
+
+	os.Stdout.Write(b)
+
+	return b, err
 }

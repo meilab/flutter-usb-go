@@ -14,7 +14,7 @@ class FlutterUsbGo {
     return FlutterUsbGoPlatform.instance.getPlatformVersion();
   }
 
-  Future<String?> getUsbInfo() {
+  Future<Uint8List?> getUsbInfo() {
     return FlutterUsbGoPlatform.instance.getUsbInfo();
   }
 

@@ -17,9 +17,10 @@ class MethodChannelFlutterUsbGo extends FlutterUsbGoPlatform {
   }
 
   @override
-  Future<String?> getUsbInfo() async {
-    final version = await methodChannel.invokeMethod<String>('getUsbInfo');
-    return version;
+  Future<Uint8List?> getUsbInfo() async {
+    final Uint8List? deviceDescs =
+        await methodChannel.invokeMethod<Uint8List>('getUsbInfo');
+    return deviceDescs;
   }
 
   @override
